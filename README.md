@@ -1,4 +1,4 @@
-# Memory-Game
+# Memory Game
 A console-based memory game using **C#** and the **.NET** framework.
 The game allows two players, either two humans or a human and a computer opponent, to take turns revealing hidden pairs of letters on a grid.
 The objective is to find matching pairs, with the player who finds the most pairs declared the winner.
