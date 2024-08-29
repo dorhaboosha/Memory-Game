@@ -1,0 +1,9 @@
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\bin\Debug\Ex02.exe.config
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\bin\Debug\Ex02.exe
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\bin\Debug\Ex02.pdb
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\bin\Debug\Ex02.ConsoleUtils.dll
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\obj\Debug\Ex02.csproj.AssemblyReference.cache
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\obj\Debug\Ex02.csproj.CoreCompileInputs.cache
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\obj\Debug\Ex02.csproj.Up2Date
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\obj\Debug\Ex02.exe
+C:\C# Course\homework 2\B24 Ex02 Dor 208663534 Rom 209082221\Ex02\obj\Debug\Ex02.pdb
