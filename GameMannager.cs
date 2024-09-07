@@ -65,7 +65,7 @@ namespace Ex02
                 }
                 else 
                 {
-                    Console.WriteLine("The number od cells numst be even, Please write another numbers for rows and columns.");
+                    Console.WriteLine("The number of cells numst be even, Please write another numbers for rows and columns.");
                 }
             }
         }
