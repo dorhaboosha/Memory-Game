@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +8,20 @@ using static MemoryGame.Player;
 
 namespace MemoryGame
 {
+    /// <summary>
+    /// Orchestrates the Memory game flow. Handles player setup (human vs computer),
+    /// board configuration, the main game loop, and end-of-game logic.
+    /// </summary>
     public class GameMannager
     {
         private Board m_BoardGame;
         private Player[] m_Players;
         private int m_CurrentPlayerIndex;
 
+        /// <summary>
+        /// Starts the Memory game. Prompts for player names, board size, then runs
+        /// the game until the board is complete or a player exits.
+        /// </summary>
         public void StartGame()
         {
             setPlayers();
