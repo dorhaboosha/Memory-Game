@@ -1,0 +1,22 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.csproj.user
+*.userosscache
+*.sln.docstates
+
+# Rider / IntelliJ
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ClickOnce / signing artifacts (not needed)
+*.pfx
+app.publish/
