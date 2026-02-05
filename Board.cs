@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +7,10 @@ using static MemoryGame.MemoryCard;
 
 namespace MemoryGame
 {
+    /// <summary>
+    /// Represents the game board for a Memory card game. Manages a grid of paired cards,
+    /// their placement, shuffling, and tracking of revealed cards.
+    /// </summary>
     public class Board
     {
         private readonly int r_NumberOfRows;
@@ -14,6 +18,11 @@ namespace MemoryGame
         private MemoryCard[,] m_BoardGame;
         private int m_NumberOfRevealedCards;
 
+        /// <summary>
+        /// Initializes a new board with the specified dimensions and creates paired cards.
+        /// </summary>
+        /// <param name="i_NumberOfRows">Number of rows in the board.</param>
+        /// <param name="i_NumberOfColumns">Number of columns in the board.</param>
         public Board(int i_NumberOfRows, int i_NumberOfColumns)
         {
             r_NumberOfRows = i_NumberOfRows;
@@ -24,6 +33,7 @@ namespace MemoryGame
             intializeBorad();
         }
 
+        /// <summary>Gets the number of rows in the board.</summary>
         public int NumberOfRows
         {
             get 
@@ -32,6 +42,7 @@ namespace MemoryGame
             }
         }
 
+        /// <summary>Gets the number of columns in the board.</summary>
         public int NumberOfColumns
         {
             get
@@ -88,22 +99,34 @@ namespace MemoryGame
             }
         }
 
+        /// <summary>Gets the card at the specified position.</summary>
+        /// <param name="i_NumberRow">Row index (0-based).</param>
+        /// <param name="i_NumberColumn">Column index (0-based).</param>
+        /// <returns>The <see cref="MemoryCard"/> at the given coordinates.</returns>
         public MemoryCard GetCard(int i_NumberRow, int i_NumberColumn)
         {
             return m_BoardGame[i_NumberRow, i_NumberColumn];
         }
 
+        /// <summary>Checks whether all cards on the board have been revealed.</summary>
+        /// <returns>True if every card is revealed; otherwise false.</returns>
         public bool CheckIfTheBoardComplete()
         {
             return m_NumberOfRevealedCards == r_NumberOfRows * r_NumberOfColumns;
         }
 
+        /// <summary>Reveals (flips) the card at the specified position.</summary>
+        /// <param name="i_NumberRow">Row index (0-based).</param>
+        /// <param name="i_NumberColumn">Column index (0-based).</param>
         public void OpenCard(int i_NumberRow, int i_NumberColumn)
         {
             m_BoardGame[i_NumberRow, i_NumberColumn].FlipCard();
             m_NumberOfRevealedCards++;
         }
 
+        /// <summary>Hides (flips back) the card at the specified position if it is currently revealed.</summary>
+        /// <param name="i_NumberRow">Row index (0-based).</param>
+        /// <param name="i_NumberColumn">Column index (0-based).</param>
         public void CloseCard(int i_NumberRow, int i_NumberColumn)
         {
             if (m_BoardGame[i_NumberRow, i_NumberColumn].IsCardRevealed)
