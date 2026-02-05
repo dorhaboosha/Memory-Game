@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>assets\memory-game.ico</ApplicationIcon>
+    <ApplicationIcon>memory-game.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -76,6 +76,7 @@
   <ItemGroup>
     <Content Include="assets\memory-game.ico" />
     <Content Include="libs\Ex02.ConsoleUtils.dll" />
+    <Content Include="memory-game.ico" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Ex02.ConsoleUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
