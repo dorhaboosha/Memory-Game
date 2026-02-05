@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
@@ -8,6 +8,10 @@ using static MemoryGame.Player;
 
 namespace MemoryGame
 {
+    /// <summary>
+    /// Provides validation and input-handling utilities for the Memory game.
+    /// Handles player names, board dimensions, cell coordinates, and game flow prompts.
+    /// </summary>
     public class GameRules
     {
         private static bool nameValidation(StringBuilder i_name)
@@ -39,6 +43,8 @@ namespace MemoryGame
             return correctName;
         }
 
+        /// <summary>Prompts for and validates a player name (letters only, up to 20 characters, no spaces).</summary>
+        /// <returns>The validated player name.</returns>
         public static string GetThePlayerName()
         {
             StringBuilder playerName = new StringBuilder(Console.ReadLine());
@@ -78,6 +84,8 @@ namespace MemoryGame
             return correctType;
         }
 
+        /// <summary>Prompts for and validates the second player type (C for computer, P for person).</summary>
+        /// <returns>The selected player type as <see cref="eWhoPlay"/>.</returns>
         public static eWhoPlay GetTheSecondPlayerType()
         {
             eWhoPlay playerType;
@@ -131,6 +139,10 @@ namespace MemoryGame
             return number;
         }
 
+        /// <summary>Checks whether the board has an even number of cells (required for paired cards).</summary>
+        /// <param name="i_NumberOfRows">Number of rows.</param>
+        /// <param name="i_NumberOfColumns">Number of columns.</param>
+        /// <returns>True if the total cell count is even; otherwise false.</returns>
         public static bool ValidSizeBoard(int i_NumberOfRows, int i_NumberOfColumns)
         {
             bool theNumberOfCellsIsEven = (i_NumberOfRows * i_NumberOfColumns) % 2 == 0;
@@ -138,6 +150,9 @@ namespace MemoryGame
             return theNumberOfCellsIsEven;
         }
 
+        /// <summary>Checks whether the player's input indicates an exit request (Q).</summary>
+        /// <param name="i_PlayrAnswer">The player's input string.</param>
+        /// <returns>True if the input is "Q"; otherwise false.</returns>
         public static bool ValidExit(string i_PlayrAnswer)
         {
             bool checkAnswer = true;
@@ -161,6 +176,9 @@ namespace MemoryGame
             return checkAnswer;
         }
 
+        /// <summary>Converts a row character ('1'–'9') to a 0-based row index.</summary>
+        /// <param name="i_NumberRowChar">The row character (e.g. '1' for first row).</param>
+        /// <returns>The 0-based row index.</returns>
         public static int GetNumberRow(char i_NumberRowChar)
         {
             int numberRow = i_NumberRowChar - '1';
@@ -175,6 +193,11 @@ namespace MemoryGame
             return numberColumn;
         }
 
+        /// <summary>Validates that a cell input (e.g. "A1") is within the board bounds.</summary>
+        /// <param name="i_PlayerAnswer">The player's cell input (column + row).</param>
+        /// <param name="i_NumberOfRows">Number of rows on the board.</param>
+        /// <param name="i_NumberOfColumns">Number of columns on the board.</param>
+        /// <returns>True if the input represents a valid cell; otherwise false.</returns>
         public static bool ValidCard(string i_PlayerAnswer, int i_NumberOfRows, int i_NumberOfColumns)
         {
             bool checkAnswer = true;
@@ -202,6 +225,10 @@ namespace MemoryGame
             return checkAnswer;
         }
 
+        /// <summary>Prompts for and validates a cell selection or exit (Q) from the player.</summary>
+        /// <param name="i_NumberOfRows">Number of rows on the board.</param>
+        /// <param name="i_NumberOfColumns">Number of columns on the board.</param>
+        /// <returns>A valid cell string (e.g. "A1") or "Q" to exit.</returns>
         public static string GetAnswerFromPlayer(int i_NumberOfRows, int i_NumberOfColumns)
         {
             StringBuilder PlayerAnswer = new StringBuilder(Console.ReadLine());
@@ -216,6 +243,10 @@ namespace MemoryGame
             return PlayerAnswer.ToString();
         }
 
+        /// <summary>Checks whether two cards have matching signs.</summary>
+        /// <param name="i_FirstCard">The first card.</param>
+        /// <param name="i_SecondCard">The second card.</param>
+        /// <returns>True if the cards match; otherwise false.</returns>
         public static bool MatchCards(MemoryCard i_FirstCard, MemoryCard i_SecondCard)
         {
             bool matchCards = i_FirstCard.CardSign == i_SecondCard.CardSign;
@@ -231,6 +262,8 @@ namespace MemoryGame
             return playerAnswerLengthIsOne && playerAnswerIsYesOrNo;
         }
 
+        /// <summary>Prompts for and validates a play-again choice (Y or N).</summary>
+        /// <returns>"Y" to play again or "N" to exit.</returns>
         public static string GetAnswerForAgain()
         {
             StringBuilder PlayerAnswer = new StringBuilder(Console.ReadLine());
@@ -245,6 +278,11 @@ namespace MemoryGame
             return PlayerAnswer.ToString();
         }
 
+        /// <summary>Generates a random valid cell selection for the computer (an unrevealed card).</summary>
+        /// <param name="i_BoardGame">The game board.</param>
+        /// <param name="i_NumberOfRows">Number of rows on the board.</param>
+        /// <param name="i_NumberOfColumns">Number of columns on the board.</param>
+        /// <returns>A cell string (e.g. "A1") representing the chosen position.</returns>
         public static string GetAnswerFromComputer(Board i_BoardGame, int i_NumberOfRows, int i_NumberOfColumns)
         {
             Random randomNumber = new Random();
