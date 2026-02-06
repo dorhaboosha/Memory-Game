@@ -10,7 +10,7 @@ namespace MemoryGame
     {
         public static void Main() 
         {
-            GameMannager memoryGame = new GameMannager();
+            GameManager memoryGame = new GameManager();
             
             memoryGame.StartGame();
         }

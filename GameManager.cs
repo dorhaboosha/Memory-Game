@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +8,20 @@ using static MemoryGame.Player;
 
 namespace MemoryGame
 {
-    public class GameMannager
+    /// <summary>
+    /// Orchestrates the Memory game flow. Handles player setup (human vs computer),
+    /// board configuration, the main game loop, and end-of-game logic.
+    /// </summary>
+    public class GameManager
     {
         private Board m_BoardGame;
         private Player[] m_Players;
         private int m_CurrentPlayerIndex;
 
+        /// <summary>
+        /// Starts the Memory game. Prompts for player names, board size, then runs
+        /// the game until the board is complete or a player exits.
+        /// </summary>
         public void StartGame()
         {
             setPlayers();
@@ -24,7 +32,7 @@ namespace MemoryGame
         private void setPlayers()
         {
             Console.WriteLine("Welcome to the Memory Game!!!");
-            Console.WriteLine("Please fist player write your name (up to 20 characters allowed, no spaces):");
+            Console.WriteLine("Player 1, enter your name (up to 20 characters, no spaces):");
             string firstPlayerName = GameRules.GetThePlayerName();
             m_Players = new Player[2];
             m_Players[0] = new Player(firstPlayerName, eWhoPlay.Person);
@@ -38,7 +46,7 @@ namespace MemoryGame
             }
             else 
             {
-                Console.WriteLine("Please second player write your name (up to 20 characters allowed, no spaces):");
+                Console.WriteLine("Player 2, enter your name (up to 20 characters, no spaces):");
                 string secondPlayerName = GameRules.GetThePlayerName();
                 
                 m_Players[1] = new Player(secondPlayerName, eWhoPlay.Person);
@@ -65,7 +73,7 @@ namespace MemoryGame
                 }
                 else 
                 {
-                    Console.WriteLine("The number of cells numst be even, Please write another numbers for rows and columns.");
+                    Console.WriteLine("The number of cells must be even. Please enter different numbers for rows and columns.");
                 }
             }
         }
@@ -90,7 +98,7 @@ namespace MemoryGame
                 
                 if (thePlayerIsComputer)
                 {
-                    Console.WriteLine("\n{0} now is your turn, please write the first cell you want to to open:",
+                    Console.WriteLine("\n{0} now is your turn, please write the first cell you want to open:",
                         m_Players[m_CurrentPlayerIndex].Name);
                     computerTurn(out numberRowFirstCard, out numberColumnFirstCard);
                 }
