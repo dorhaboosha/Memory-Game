@@ -32,7 +32,7 @@ namespace MemoryGame
         private void setPlayers()
         {
             Console.WriteLine("Welcome to the Memory Game!!!");
-            Console.WriteLine("Please fist player write your name (up to 20 characters allowed, no spaces):");
+            Console.WriteLine("Please first player write your name (up to 20 characters allowed, no spaces):");
             string firstPlayerName = GameRules.GetThePlayerName();
             m_Players = new Player[2];
             m_Players[0] = new Player(firstPlayerName, eWhoPlay.Person);
@@ -73,7 +73,7 @@ namespace MemoryGame
                 }
                 else 
                 {
-                    Console.WriteLine("The number of cells numst be even, Please write another numbers for rows and columns.");
+                    Console.WriteLine("The number of cells mustt be even, Please write another numbers for rows and columns.");
                 }
             }
         }
