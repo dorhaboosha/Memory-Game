@@ -120,8 +120,13 @@ namespace MemoryGame
         /// <param name="i_NumberColumn">Column index (0-based).</param>
         public void OpenCard(int i_NumberRow, int i_NumberColumn)
         {
-            m_BoardGame[i_NumberRow, i_NumberColumn].FlipCard();
-            m_NumberOfRevealedCards++;
+            MemoryCard card = m_BoardGame[i_NumberRow, i_NumberColumn];
+            if (!card.IsCardRevealed)
+            {
+                card.FlipCard();
+                m_BoardGame[i_NumberRow, i_NumberColumn] = card;
+                m_NumberOfRevealedCards++;
+            }
         }
 
         /// <summary>Hides (flips back) the card at the specified position if it is currently revealed.</summary>
@@ -129,9 +134,11 @@ namespace MemoryGame
         /// <param name="i_NumberColumn">Column index (0-based).</param>
         public void CloseCard(int i_NumberRow, int i_NumberColumn)
         {
-            if (m_BoardGame[i_NumberRow, i_NumberColumn].IsCardRevealed)
+            MemoryCard card = m_BoardGame[i_NumberRow, i_NumberColumn];
+            if (card.IsCardRevealed)
             {
-                m_BoardGame[i_NumberRow, i_NumberColumn].FlipCard();
+                card.FlipCard();
+                m_BoardGame[i_NumberRow, i_NumberColumn] = card;
                 m_NumberOfRevealedCards--;
             }
         }

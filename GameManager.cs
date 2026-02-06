@@ -12,7 +12,7 @@ namespace MemoryGame
     /// Orchestrates the Memory game flow. Handles player setup (human vs computer),
     /// board configuration, the main game loop, and end-of-game logic.
     /// </summary>
-    public class GameMannager
+    public class GameManager
     {
         private Board m_BoardGame;
         private Player[] m_Players;
