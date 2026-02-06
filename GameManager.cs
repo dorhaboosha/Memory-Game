@@ -46,7 +46,7 @@ namespace MemoryGame
             }
             else 
             {
-                Console.WriteLine("Please second player write your name (up to 20 characters allowed, no spaces):");
+                Console.WriteLine("Player 2, enter your name (up to 20 characters, no spaces):");
                 string secondPlayerName = GameRules.GetThePlayerName();
                 
                 m_Players[1] = new Player(secondPlayerName, eWhoPlay.Person);
@@ -98,7 +98,7 @@ namespace MemoryGame
                 
                 if (thePlayerIsComputer)
                 {
-                    Console.WriteLine("\n{0} now is your turn, please write the first cell you want to to open:",
+                    Console.WriteLine("\n{0} now is your turn, please write the first cell you want to open:",
                         m_Players[m_CurrentPlayerIndex].Name);
                     computerTurn(out numberRowFirstCard, out numberColumnFirstCard);
                 }
